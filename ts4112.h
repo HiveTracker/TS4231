@@ -1,13 +1,13 @@
 /*******************************************************************
     Copyright (C) 2017 Triad Semiconductor
 
-    ts4231.h - Library for configuring the Triad Semiconductor TS4231 Light
+    ts4112.h - Library for configuring the Triad Semiconductor TS4112 Light
                to Digital converter.
     Created by: John Seibel
 *******************************************************************/
 
-#ifndef ts4231_h
-#define ts4231_h
+#ifndef ts4112_h
+#define ts4112_h
 
 #include <stdint.h>
 
@@ -25,10 +25,10 @@
 #define WATCH_FAIL      0x03    //configDevice() function status return value
 #define CONFIG_PASS     0x04    //configDevice() function status return value
 
-class TS4231 {
+class TS4112 {
 
   public:
-    TS4231(int device_E_pin, int device_D_pin);
+    TS4112(int device_E_pin, int device_D_pin);
     bool waitForLight(uint16_t light_timeout);  //timeout in milliseconds
     bool goToSleep(void);
     uint8_t configDevice(uint16_t config_val = CFG_WORD);
@@ -46,6 +46,6 @@ class TS4231 {
     int E_pin;
     int D_pin;
     bool configured;
-};    
+};
 
 #endif

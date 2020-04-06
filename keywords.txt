@@ -6,7 +6,7 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-TS4231	KEYWORD1
+TS4112	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)

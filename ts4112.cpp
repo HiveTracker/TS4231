@@ -43,7 +43,7 @@ void TS4231::ts_pinMode(int pin, uint8_t mode) {
 
 uint8_t TS4231::ts_digitalRead(int pin) {
   uint8_t read_val;
-  
+
   read_val = digitalRead(pin);
   return read_val;
   }
@@ -58,7 +58,7 @@ void TS4231::ts_digitalWrite(int pin, uint8_t write_val) {
 
 unsigned long TS4231::ts_millis() {
   unsigned long current_time;
-  
+
   current_time = millis();
   return current_time;
   }
@@ -108,7 +108,7 @@ bool TS4231::waitForLight(uint16_t light_timeout) {
 
 bool TS4231::goToSleep(void) {
   bool sleep_success;
-  
+
   if (configured == false)  sleep_success = false;
   else {
     switch (checkBus()) {
@@ -142,7 +142,7 @@ bool TS4231::goToSleep(void) {
 uint8_t TS4231::configDevice(uint16_t config_val) {
   uint8_t config_success = 0x00;
   uint16_t readback;
-  
+
   configured = false;
   ts_pinMode(D_pin, INPUT);
   ts_pinMode(E_pin, INPUT);
@@ -173,7 +173,7 @@ uint8_t TS4231::configDevice(uint16_t config_val) {
     else config_success = VERIFY_FAIL;
     }
   else config_success = BUS_FAIL;
-  
+
   return config_success;
   }
 
@@ -209,7 +209,7 @@ void TS4231::writeConfig(uint16_t config_val) {
 
 uint16_t TS4231::readConfig(void) {
   uint16_t readback;
-  
+
   readback = 0x0000;
   ts_digitalWrite(E_pin, HIGH);
   ts_digitalWrite(D_pin, HIGH);
@@ -277,13 +277,13 @@ uint8_t TS4231::checkBus(void) {
   else if (S3_count >= 2) state = S3_STATE;
   else if (S0_count >= 2) state = S0_STATE;
   else state = UNKNOWN_STATE;
-  
+
   return state;
   }
 
 bool TS4231::goToWatch(void) {
   bool watch_success;
-  
+
   if (configured == false)  watch_success = false;
   else {
     switch (checkBus()) {
